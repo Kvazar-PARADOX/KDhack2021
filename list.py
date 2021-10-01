@@ -4,13 +4,15 @@
     "ves" : "6.3-8.1",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "2",
 },
 {
     'name': 'Ретривер',
     'height': '52-61',
     "ves" : "26-40",
     "naznachenie" : "Охота",
-    "Sherst" : "Плот Вод" ,  
+    "Sherst" : "Плот Вод" , 
+    "Agrassive" : "1" ,
 },
 {
     'name': 'Рассер терьер',
@@ -18,6 +20,7 @@
     "ves" : "5-6",
     "naznachenie" : "Охота",
     "Sherst" : "Глад",
+    "Agrassive" : "4",
 },
 {
     
@@ -26,6 +29,7 @@
     "ves" : "22-40",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Английский бульдог',
@@ -33,6 +37,7 @@
     "ves" : "24",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "2",
 },
 {
     'name': 'Акита-ину',
@@ -40,6 +45,7 @@
     "ves" : "20-40",
     "naznachenie" : "Охот",
     "Sherst" : "Плот",
+    "Agrassive" : "2",
 },
 {
     'name': 'Сербернар',
@@ -47,6 +53,7 @@
     "ves" : "70-85",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "2",
 },
 {
     'name': 'Хаски',
@@ -54,6 +61,7 @@
     "ves" : "15-28",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "5",
 },
 {
     'name': 'Бигль',
@@ -61,6 +69,7 @@
     "ves" : "9-14",
     "naznachenie" : "Охота",
     "Sherst" : "Глад",
+    "Agrassive" : "1",
 },
 {
     'name': 'Шпиц',
@@ -68,6 +77,7 @@
     "ves" : "17-22",
     "naznachenie" : "Дом",
     "Sherst" : "Плот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Доберман',
@@ -75,6 +85,7 @@
     "ves" : "32-45",
     "naznachenie" : "Служ",
     "Sherst" : "Корот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Бультерьер',
@@ -82,13 +93,15 @@
     "ves" : "23-38",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "5",
 },
 {
-    'name': 'Далматин',
+    'name': 'Далматинец',
     'height': '54-62',
     "ves" : "24-32",
     "naznachenie" : "Охот дом",
     "Sherst" : "Корот",
+    "Agrassive" : "4",
 },
 {
     'name': 'Ротвейлер',
@@ -96,6 +109,7 @@
     "ves" : "38-53",
     "naznachenie" : "Служ",
     "Sherst" : "Глад",
+    "Agrassive" : "5",
 },
 {
     'name': 'Cиба-ину',
@@ -103,6 +117,7 @@
     "ves" : "7-13",
     "naznachenie" : "Охот",
     "Sherst" : "Плот",
+    "Agrassive" : "6",
 },
 {
     'name': 'Ньюфаундленд',
@@ -110,5 +125,6 @@
     "ves" : "49-53",
     "naznachenie" : "Служ",
     "Sherst" : "Плот вод",
+    "Agrassive" : "2",
 }
 ]
