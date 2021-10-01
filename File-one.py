@@ -112,6 +112,8 @@ sl = [{
     "Sherst" : "Плот вод",
 }
 ]
+shake_y = 5
+shake_xz = 3
 
 def find_nearbest(in_dic:dict, sl_dic:dict):
     nearbest = []
@@ -121,16 +123,21 @@ def find_nearbest(in_dic:dict, sl_dic:dict):
         for j in sl_dic:
             prom.append([i['name'] + '+' + j['name'], 0])
 
-            if round((sr(i['height']) + sr(j['height'])) / 2) >= int(in_dic['height']) - 5 and round((sr(i['height']) + sr(j['height'])) / 2) <= int(in_dic['height']) + 5:
+            if round((sr(i['height']) + sr(j['height'])) / 2) >= int(in_dic['height']) - 5 and round((sr(i['height']) + sr(j['height'])) / 2) <= int(in_dic['height']) + shake_y:
                 prom[-1][1] += 3
 
-            if round((sr(i['ves']) + sr(j['ves'])) / 2) >= int(in_dic['ves']) - 3 and round((sr(i['ves']) + sr(j['ves'])) / 2) <= int(in_dic['ves']) + 3:
+            if round((sr(i['ves']) + sr(j['ves'])) / 2) >= int(in_dic['ves']) - 3 and round((sr(i['ves']) + sr(j['ves'])) / 2) <= int(in_dic['ves']) + shake_y:
                 prom[-1][1] += 1
 
             if i['naznachenie'] == j['naznachenie'] == in_dic['naznachenie']:
                 prom[-1][1] += 3
             elif i['naznachenie'] == in_dic['naznachenie'] or j['naznachenie'] == in_dic['naznachenie']:
                 prom[-1][1] += 2
+
+            if i['Sherst'] == j['Sherst'] == in_dic['Sherst']:
+                prom[-1][1] += 2
+            elif i['Sherst'] == in_dic['Sherst'] or j['Sherst'] == in_dic['Sherst']:
+                prom[-1][1] += 1
         
         inp = prom[0]
         for k in range(len(prom)):
