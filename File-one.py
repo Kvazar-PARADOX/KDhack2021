@@ -114,6 +114,10 @@ sl = [{
 ]
 shake_y = 5
 shake_xz = 3
+height_dog = int(input('Высота собаки: ')) #изменить на входные данные с qt
+weight_dog = int(input('Вес собаки: ')) #изменить на входные данные с qt
+nazn_dog = str(input('Назначение собаки: ')) #изменить на входные данные с qt
+sherst_dog = str(input('Шерсть собаки: ')) #изменить на входные данные с qt
 
 def find_nearbest(in_dic:dict, sl_dic:dict):
     nearbest = []
@@ -157,11 +161,10 @@ def sr(st):
     return ret
 
 in_sl = {
-    'name': 'Ньюфаундленд',
-    'height': '150', 
-    "ves" : "10",
-    "naznachenie" : "Охот",
-    "Sherst" : "Плот вод",
+    'height': height_dog, 
+    "ves" : weight_dog,
+    "naznachenie" : nazn_dog,
+    "Sherst" :  sherst_dog,
 }
 
 print(find_nearbest(in_sl, sl))
