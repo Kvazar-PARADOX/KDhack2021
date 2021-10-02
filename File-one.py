@@ -4,13 +4,15 @@ sl = [{
     "ves" : "6-8",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "2",
 },
 {
     'name': 'Ретривер',
     'height': '52-61',
     "ves" : "26-40",
     "naznachenie" : "Охот",
-    "Sherst" : "Плот Вод" ,  
+    "Sherst" : "Плот Вод" , 
+    "Agrassive" : "1" ,
 },
 {
     'name': 'Рассер терьер',
@@ -18,14 +20,16 @@ sl = [{
     "ves" : "5-6",
     "naznachenie" : "Охот",
     "Sherst" : "Глад",
+    "Agrassive" : "4",
 },
 {
-    
+
     'name': 'Немецкая овчарка',
     'height': '55-65',
     "ves" : "22-40",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Английский бульдог',
@@ -33,6 +37,7 @@ sl = [{
     "ves" : "24-25",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "2",
 },
 {
     'name': 'Акита-ину',
@@ -40,6 +45,7 @@ sl = [{
     "ves" : "20-40",
     "naznachenie" : "Охот",
     "Sherst" : "Плот",
+    "Agrassive" : "2",
 },
 {
     'name': 'Сербернар',
@@ -47,6 +53,7 @@ sl = [{
     "ves" : "70-85",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "2",
 },
 {
     'name': 'Хаски',
@@ -54,6 +61,7 @@ sl = [{
     "ves" : "15-28",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "5",
 },
 {
     'name': 'Бигль',
@@ -61,6 +69,7 @@ sl = [{
     "ves" : "9-14",
     "naznachenie" : "Охот",
     "Sherst" : "Глад",
+    "Agrassive" : "1",
 },
 {
     'name': 'Шпиц',
@@ -68,6 +77,7 @@ sl = [{
     "ves" : "17-22",
     "naznachenie" : "Дом",
     "Sherst" : "Плот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Доберман',
@@ -75,6 +85,7 @@ sl = [{
     "ves" : "32-45",
     "naznachenie" : "Служ",
     "Sherst" : "Корот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Бультерьер',
@@ -82,6 +93,7 @@ sl = [{
     "ves" : "23-38",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "5",
 },
 {
     'name': 'Далматин',
@@ -89,6 +101,7 @@ sl = [{
     "ves" : "24-32",
     "naznachenie" : "Дом",
     "Sherst" : "Корот",
+    "Agrassive" : "4",
 },
 {
     'name': 'Ротвейлер',
@@ -96,13 +109,15 @@ sl = [{
     "ves" : "38-53",
     "naznachenie" : "Служ",
     "Sherst" : "Глад",
+    "Agrassive" : "5",
 },
 {
-    'name': 'Cиба-ину',
+    'name': 'Сиба-ину',
     'height': '35-41', 
     "ves" : "7-13",
     "naznachenie" : "Охот",
     "Sherst" : "Плот",
+    "Agrassive" : "6",
 },
 {
     'name': 'Ньюфаундленд',
@@ -110,14 +125,13 @@ sl = [{
     "ves" : "49-53",
     "naznachenie" : "Служ",
     "Sherst" : "Плот вод",
+    "Agrassive" : "2",
 }
 ]
 shake_y = 5
 shake_xz = 3
-height_dog = int(input('Высота собаки: ')) #изменить на входные данные с qt
-weight_dog = int(input('Вес собаки: ')) #изменить на входные данные с qt
-nazn_dog = str(input('Назначение собаки: ')) #изменить на входные данные с qt
-sherst_dog = str(input('Шерсть собаки: ')) #изменить на входные данные с qt
+
+import random
 
 def find_nearbest(in_dic:dict, sl_dic:dict):
     nearbest = []
@@ -127,31 +141,40 @@ def find_nearbest(in_dic:dict, sl_dic:dict):
         for j in sl_dic:
             prom.append([i['name'] + '+' + j['name'], 0])
 
-            if round((sr(i['height']) + sr(j['height'])) / 2) >= int(in_dic['height']) - 5 and round((sr(i['height']) + sr(j['height'])) / 2) <= int(in_dic['height']) + shake_y:
-                prom[-1][1] += 3
+            if round((sr(i['height']) + sr(j['height'])) / 2) >= int(in_dic['height']) - in_dic['shake_y'] and round((sr(i['height']) + sr(j['height'])) / 2) <= int(in_dic['height']) + in_dic['shake_y']:
+                prom[-1][1] += 300
 
-            if round((sr(i['ves']) + sr(j['ves'])) / 2) >= int(in_dic['ves']) - 3 and round((sr(i['ves']) + sr(j['ves'])) / 2) <= int(in_dic['ves']) + shake_y:
-                prom[-1][1] += 1
+            if round((sr(i['ves']) + sr(j['ves'])) / 2) >= int(in_dic['ves']) - in_dic['shake_xz'] and round((sr(i['ves']) + sr(j['ves'])) / 2) <= int(in_dic['ves']) + in_dic['shake_xz']:
+                prom[-1][1] += 100
 
             if i['naznachenie'] == j['naznachenie'] == in_dic['naznachenie']:
-                prom[-1][1] += 3
+                prom[-1][1] += 300
             elif i['naznachenie'] == in_dic['naznachenie'] or j['naznachenie'] == in_dic['naznachenie']:
-                prom[-1][1] += 2
+                prom[-1][1] += 200
 
             if i['Sherst'] == j['Sherst'] == in_dic['Sherst']:
-                prom[-1][1] += 2
+                prom[-1][1] += 100
             elif i['Sherst'] == in_dic['Sherst'] or j['Sherst'] == in_dic['Sherst']:
-                prom[-1][1] += 1
-        
+                prom[-1][1] += 100
+
+            if i['name'] == j['name']:
+                prom[-1][1] -= 100000
+
+            if round((int(i['Agrassive']) + int(j['Agrassive'])) / 2) >= int(in_dic['agressive']) - 1 and round((int(i['Agrassive']) + int(j['Agrassive'])) / 2) <= int(in_dic['agressive']) + 1:
+                prom[-1][1] += 400
         inp = prom[0]
         for k in range(len(prom)):
-            if inp[1] < prom[k][1]:
-                inp = prom[k]
+            rnd = random.randint(0, 1)
+            if inp[1] <= prom[k][1]:
+                if rnd == 1:
+                    inp = prom[k]
         nearbest.append(inp)
         prom = []
     inp2 = nearbest[0]
     for k in range(len(nearbest)):
-            if inp2[1] < nearbest[k][1]:
+        rand = random.randint(0, 1)
+        if inp2[1] <= nearbest[k][1]:
+            if rand == 1:
                 inp2 = nearbest[k]
     return inp2
 
@@ -160,11 +183,301 @@ def sr(st):
     ret = (int(lst[0]) + int(lst[1]))/2
     return ret
 
-in_sl = {
-    'height': height_dog, 
-    "ves" : weight_dog,
-    "naznachenie" : nazn_dog,
-    "Sherst" :  sherst_dog,
-}
 
-print(find_nearbest(in_sl, sl))
+
+
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'м1.ui'
+#
+# Created by: PyQt5 UI code generator 5.15.4
+#
+# WARNING: Any manual changes made to this file will be lost when pyuic5 is
+# run again.  Do not edit this file unless you know what you are doing.
+
+
+from PyQt6 import QtCore, QtGui, QtWidgets
+
+
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Genetics code manipulator")
+        Form.resize(337, 491)
+        self.gridLayoutWidget = QtWidgets.QWidget(Form)
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 211, 133))
+        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout.setObjectName("gridLayout")
+        self.radioButton = QtWidgets.QRadioButton(self.gridLayoutWidget)
+        self.radioButton.setObjectName("radioButton")
+        self.buttonGroup = QtWidgets.QButtonGroup(Form)
+        self.buttonGroup.setObjectName("buttonGroup")
+        self.buttonGroup.addButton(self.radioButton)
+        self.gridLayout.addWidget(self.radioButton, 6, 0, 1, 1)
+        self.radioButton_2 = QtWidgets.QRadioButton(self.gridLayoutWidget)
+        self.radioButton_2.setObjectName("radioButton_2")
+        self.buttonGroup.addButton(self.radioButton_2)
+        self.gridLayout.addWidget(self.radioButton_2, 8, 0, 1, 1)
+        self.radioButton_3 = QtWidgets.QRadioButton(self.gridLayoutWidget)
+        self.radioButton_3.setObjectName("radioButton_3")
+        self.buttonGroup.addButton(self.radioButton_3)
+        self.gridLayout.addWidget(self.radioButton_3, 7, 0, 1, 1)
+        self.radioButton_4 = QtWidgets.QRadioButton(self.gridLayoutWidget)
+        self.radioButton_4.setObjectName("radioButton_4")
+        self.buttonGroup.addButton(self.radioButton_4)
+        self.gridLayout.addWidget(self.radioButton_4, 5, 0, 1, 1)
+        self.label = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.label.setObjectName("label")
+        self.gridLayout.addWidget(self.label, 4, 0, 1, 1)
+        self.label_4 = QtWidgets.QLabel(Form)
+        self.label_4.setGeometry(QtCore.QRect(260, 30, 31, 16))
+        self.label_4.setObjectName("label_4")
+        self.spinBox = QtWidgets.QSpinBox(Form)
+        self.spinBox.setGeometry(QtCore.QRect(10, 170, 209, 20))
+        self.spinBox.setMinimum(0)
+        self.spinBox.setMaximum(10)
+        self.spinBox.setObjectName("spinBox")
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(10, 150, 121, 16))
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(Form)
+        self.label_3.setGeometry(QtCore.QRect(230, 170, 61, 16))
+        self.label_3.setObjectName("label_3")
+        self.label_5 = QtWidgets.QLabel(Form)
+        self.label_5.setGeometry(QtCore.QRect(120, 210, 91, 16))
+        self.label_5.setObjectName("label_5")
+        self.frame = QtWidgets.QFrame(Form)
+        self.frame.setGeometry(QtCore.QRect(90, 230, 231, 41))
+        self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame.setObjectName("frame")
+        self.radioButton_5 = QtWidgets.QRadioButton(self.frame)
+        self.radioButton_5.setGeometry(QtCore.QRect(10, 0, 82, 17))
+        self.radioButton_5.setObjectName("radioButton_5")
+        self.radioButton_6 = QtWidgets.QRadioButton(self.frame)
+        self.radioButton_6.setGeometry(QtCore.QRect(10, 20, 82, 17))
+        self.radioButton_6.setObjectName("radioButton_6")
+        self.radioButton_7 = QtWidgets.QRadioButton(self.frame)
+        self.radioButton_7.setGeometry(QtCore.QRect(90, 0, 131, 17))
+        self.radioButton_7.setObjectName("radioButton_7")
+        self.radioButton_8 = QtWidgets.QRadioButton(self.frame)
+        self.radioButton_8.setGeometry(QtCore.QRect(90, 20, 82, 17))
+        self.radioButton_8.setObjectName("radioButton_8")
+        self.label_7 = QtWidgets.QLabel(Form)
+        self.label_7.setGeometry(QtCore.QRect(19, 198, 47, 16))
+        self.label_7.setObjectName("label_7")
+        self.doubleSpinBox = QtWidgets.QDoubleSpinBox(Form)
+        self.doubleSpinBox.setGeometry(QtCore.QRect(10, 220, 51, 20))
+        self.doubleSpinBox.setMinimum(1.5)
+        self.doubleSpinBox.setMaximum(200.0)
+        self.doubleSpinBox.setObjectName("doubleSpinBox")
+        self.doubleSpinBox_2 = QtWidgets.QDoubleSpinBox(Form)
+        self.doubleSpinBox_2.setGeometry(QtCore.QRect(240, 60, 62, 22))
+        self.doubleSpinBox_2.setMinimum(10.0)
+        self.doubleSpinBox_2.setMaximum(100.0)
+        self.doubleSpinBox_2.setObjectName("doubleSpinBox_2")
+        self.doubleSpinBox_3 = QtWidgets.QDoubleSpinBox(Form)
+        self.doubleSpinBox_3.setGeometry(QtCore.QRect(240, 120, 62, 22))
+        self.doubleSpinBox_3.setMaximum(5.0)
+        self.doubleSpinBox_3.setObjectName("doubleSpinBox_3")
+        self.label_6 = QtWidgets.QLabel(Form)
+        self.label_6.setGeometry(QtCore.QRect(230, 90, 71, 21))
+        self.label_6.setObjectName("label_6")
+        self.label_12 = QtWidgets.QLabel(Form)
+        self.label_12.setGeometry(QtCore.QRect(100, 320, 151, 20))
+        self.label_12.setObjectName("label_12")
+        self.label_15 = QtWidgets.QLabel(Form)
+        self.label_15.setGeometry(QtCore.QRect(160, 370, 16, 16))
+        self.label_15.setObjectName("label_15")
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(Form)
+        self.plainTextEdit.setGeometry(QtCore.QRect(20, 430, 131, 31))
+        self.plainTextEdit.setReadOnly(True)
+        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.plainTextEdit_2 = QtWidgets.QPlainTextEdit(Form)
+        self.plainTextEdit_2.setGeometry(QtCore.QRect(180, 430, 131, 31))
+        self.plainTextEdit_2.setReadOnly(True)
+        self.plainTextEdit_2.setObjectName("plainTextEdit_2")
+        self.doubleSpinBox_4 = QtWidgets.QDoubleSpinBox(Form)
+        self.doubleSpinBox_4.setGeometry(QtCore.QRect(11, 262, 51, 20))
+        self.doubleSpinBox_4.setMinimum(1.5)
+        self.doubleSpinBox_4.setMaximum(200.0)
+        self.doubleSpinBox_4.setObjectName("doubleSpinBox_4")
+        self.label_8 = QtWidgets.QLabel(Form)
+        self.label_8.setGeometry(QtCore.QRect(10, 240, 71, 20))
+        self.label_8.setObjectName("label_8")
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(110, 290, 91, 23))
+        self.pushButton.setObjectName("pushButton")
+        self.label_9 = QtWidgets.QLabel(Form)
+        self.label_9.setGeometry(QtCore.QRect(30, 350, 121, 61))
+        self.label_9.setText("")
+        self.label_9.setObjectName("label_9")
+        self.pixmap_0 = QtGui.QPixmap()
+        self.pixmap_1 = QtGui.QPixmap('images\\акита-ину.jpg')
+        self.pixmap_2 = QtGui.QPixmap('images\\английский бульдог.jpg')
+        self.pixmap_3 = QtGui.QPixmap('images\\бигль.jpg')
+        self.pixmap_4 = QtGui.QPixmap('images\\бультерьер.jpg')
+        self.pixmap_5 = QtGui.QPixmap('images\\далматинец.jpg')
+        self.pixmap_6 = QtGui.QPixmap('images\\джек рассел терьер.jpg')
+        self.pixmap_7 = QtGui.QPixmap('images\\доберман.jpg')
+        self.pixmap_8 = QtGui.QPixmap('images\\золотистый ретривер.jpg')
+        self.pixmap_9 = QtGui.QPixmap('images\\мопс.jpg')
+        self.pixmap_10 = QtGui.QPixmap('images\\немецкая овчарка.jpg')
+        self.pixmap_11 = QtGui.QPixmap('images\\ньюфаундленд.jpg')
+        self.pixmap_12 = QtGui.QPixmap('images\\ротвейлер.jpg')
+        self.pixmap_13 = QtGui.QPixmap('images\\сенбернар.jpg')
+        self.pixmap_14 = QtGui.QPixmap('images\\siba-inu.jpg')
+        self.pixmap_15 = QtGui.QPixmap('images\\хаски.jpg')
+        self.pixmap_16 = QtGui.QPixmap('images\\шпиц.jpg')
+        self.label_10 = QtWidgets.QLabel(Form)
+        self.label_10.setGeometry(QtCore.QRect(180, 350, 121, 61))
+        self.label_10.setText("")
+        self.label_10.setObjectName("label_10")
+        self.pushButton.clicked.connect(lambda:self.activate())
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "GCM"))
+        self.radioButton.setText(_translate("Form", "Сторожевой пёс"))
+        self.radioButton_2.setText(_translate("Form", "Охотничий пёс"))
+        self.radioButton_3.setText(_translate("Form", "Домашний пёс"))
+        self.radioButton_4.setText(_translate("Form", "Служебный пёс"))
+        self.label.setText(_translate("Form", "Назначение"))
+        self.label_4.setText(_translate("Form", "Рост"))
+        self.label_2.setText(_translate("Form", "Степень агрессивности"))
+        self.label_3.setText(_translate("Form", "от 0 до 10"))
+        self.label_5.setText(_translate("Form", "Тип шерсти"))
+        self.radioButton_5.setText(_translate("Form", "Короткая"))
+        self.radioButton_6.setText(_translate("Form", "Плотная"))
+        self.radioButton_7.setText(_translate("Form", "Водоотталкивающая"))
+        self.radioButton_8.setText(_translate("Form", "Гладкая"))
+        self.label_7.setText(_translate("Form", "Вес"))
+        self.label_6.setText(_translate("Form", "Разброс роста"))
+        self.label_12.setText(_translate("Form", "Вам нужно скрестить"))
+        self.label_15.setText(_translate("Form", "+"))
+        self.label_8.setText(_translate("Form", "Разброс веса"))
+        self.pushButton.setText(_translate("Form", "Начать расчет"))
+        
+        
+        
+
+
+    def activate(self):
+        nasn = None
+        sherst = None
+        if self.radioButton_4.isChecked():
+            nasn = 'Служ'
+        elif self.radioButton.isChecked():
+            nasn = 'Сторож'
+        elif self.radioButton_3.isChecked():
+            nasn = 'Дом'
+        elif self.radioButton_2.isChecked():
+            nasn = 'Охот'
+        if self.radioButton_5.isChecked():
+            nasn = 'Корот'
+        elif self.radioButton_6.isChecked():
+            nasn = 'Плот'
+        elif self.radioButton_7.isChecked():
+            nasn = 'Вод'
+        elif self.radioButton_8.isChecked():
+            nasn = 'Глад'
+        res = find_nearbest({
+            'height': self.doubleSpinBox_2.value(), 
+            'ves': self.doubleSpinBox.value(), 
+            'shake_y': self.doubleSpinBox_3.value(),
+            'shake_xz': self.doubleSpinBox_4.value(),
+            'naznachenie': nasn,
+            'agressive': self.spinBox.value(),
+            'Sherst': sherst
+        }, sl)
+        ls = res[0].split('+')
+        first = ls[0]
+        second = ls[1]
+        self.plainTextEdit.setPlainText(first)
+        self.plainTextEdit_2.setPlainText(second)
+        self.label_9.setPixmap(self.pixmap_0)
+        self.label_10.setPixmap(self.pixmap_0)
+        if first == 'Акита-ину':
+            self.label_9.setPixmap(self.pixmap_1)
+        elif first == 'Английский бульдог':
+            self.label_9.setPixmap(self.pixmap_2)
+        elif first == 'Бигль':
+            self.label_9.setPixmap(self.pixmap_3)
+        elif first == 'Бультерьер':
+            self.label_9.setPixmap(self.pixmap_4)
+        elif first == 'Далматин':
+            self.label_9.setPixmap(self.pixmap_5)
+        elif first == 'Рассел-терьер':
+            self.label_9.setPixmap(self.pixmap_6)
+        elif first == 'Доберман':
+            self.label_9.setPixmap(self.pixmap_7)
+        elif first == 'Ретривер':
+            self.label_9.setPixmap(self.pixmap_8)
+        elif first == 'Мопс':
+            self.label_9.setPixmap(self.pixmap_9)
+        elif first == 'Немецкая овчарка':
+            self.label_9.setPixmap(self.pixmap_10)
+        elif first == 'Ньюфаундленд':
+            self.label_9.setPixmap(self.pixmap_11)
+        elif first == 'Ротвейлер':
+            self.label_9.setPixmap(self.pixmap_12)
+        elif first == 'Сенбернар':
+            self.label_9.setPixmap(self.pixmap_13)
+        elif first == 'Сиба-ину':
+            self.label_9.setPixmap(self.pixmap_14)
+        elif first == 'Хаски':
+            self.label_9.setPixmap(self.pixmap_15)
+        elif first == 'Шпиц':
+            self.label_9.setPixmap(self.pixmap_16)
+
+        if second == 'Акита-ину':
+            self.label_10.setPixmap(self.pixmap_1)
+        elif second == 'Английский бульдог':
+            self.label_10.setPixmap(self.pixmap_2)
+        elif second == 'Бигль':
+            self.label_10.setPixmap(self.pixmap_3)
+        elif second == 'Бультерьер':
+            self.label_10.setPixmap(self.pixmap_4)
+        elif second == 'Далматин':
+            self.label_10.setPixmap(self.pixmap_5)
+        elif second == 'Рассел-терьер':
+            self.label_10.setPixmap(self.pixmap_6)
+        elif second == 'Доберман':
+            self.label_10.setPixmap(self.pixmap_7)
+        elif second == 'Ретривер':
+            self.label_10.setPixmap(self.pixmap_8)
+        elif second == 'Мопс':
+            self.label_10.setPixmap(self.pixmap_9)
+        elif second == 'Немецкая овчарка':
+            self.label_10.setPixmap(self.pixmap_10)
+        elif second == 'Ньюфаундленд':
+            self.label_10.setPixmap(self.pixmap_11)
+        elif second == 'Ротвейлер':
+            self.label_10.setPixmap(self.pixmap_12)
+        elif second == 'Сенбернар':
+            self.label_10.setPixmap(self.pixmap_13)
+        elif second == 'Сиба-ину':
+            self.label_10.setPixmap(self.pixmap_14)
+        elif second == 'Хаски':
+            self.label_10.setPixmap(self.pixmap_15)
+        elif second == 'Шпиц':
+            self.label_10.setPixmap(self.pixmap_16)
+
+        
+        
+
+
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    window = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(window)
+    window.show()
+    sys.exit(app.exec())
