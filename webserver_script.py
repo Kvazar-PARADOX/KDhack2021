@@ -1,38 +1,43 @@
 sl = [{
     'name': 'Мопс',
     'height': '27-36',
-    "ves" : "6-8",
+    "ves" : "6.3-8.1",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "2",
 },
 {
     'name': 'Ретривер',
     'height': '52-61',
     "ves" : "26-40",
-    "naznachenie" : "Охот",
-    "Sherst" : "Плот Вод" ,  
+    "naznachenie" : "Охота",
+    "Sherst" : "Плот Вод" , 
+    "Agrassive" : "1" ,
 },
 {
     'name': 'Рассер терьер',
     'height': '22-30',
     "ves" : "5-6",
-    "naznachenie" : "Охот",
+    "naznachenie" : "Охота",
     "Sherst" : "Глад",
+    "Agrassive" : "4",
 },
 {
-    
+
     'name': 'Немецкая овчарка',
     'height': '55-65',
     "ves" : "22-40",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Английский бульдог',
     'height': '50-55',
-    "ves" : "24-25",
+    "ves" : "24",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "2",
 },
 {
     'name': 'Акита-ину',
@@ -40,6 +45,7 @@ sl = [{
     "ves" : "20-40",
     "naznachenie" : "Охот",
     "Sherst" : "Плот",
+    "Agrassive" : "2",
 },
 {
     'name': 'Сербернар',
@@ -47,6 +53,7 @@ sl = [{
     "ves" : "70-85",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "2",
 },
 {
     'name': 'Хаски',
@@ -54,13 +61,15 @@ sl = [{
     "ves" : "15-28",
     "naznachenie" : "Служ",
     "Sherst" : "Плот",
+    "Agrassive" : "5",
 },
 {
     'name': 'Бигль',
     'height': '33-40',
     "ves" : "9-14",
-    "naznachenie" : "Охот",
+    "naznachenie" : "Охота",
     "Sherst" : "Глад",
+    "Agrassive" : "1",
 },
 {
     'name': 'Шпиц',
@@ -68,6 +77,7 @@ sl = [{
     "ves" : "17-22",
     "naznachenie" : "Дом",
     "Sherst" : "Плот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Доберман',
@@ -75,6 +85,7 @@ sl = [{
     "ves" : "32-45",
     "naznachenie" : "Служ",
     "Sherst" : "Корот",
+    "Agrassive" : "3",
 },
 {
     'name': 'Бультерьер',
@@ -82,13 +93,15 @@ sl = [{
     "ves" : "23-38",
     "naznachenie" : "Дом",
     "Sherst" : "Глад",
+    "Agrassive" : "5",
 },
 {
-    'name': 'Далматин',
+    'name': 'Далматинец',
     'height': '54-62',
     "ves" : "24-32",
-    "naznachenie" : "Дом",
+    "naznachenie" : "Охот дом",
     "Sherst" : "Корот",
+    "Agrassive" : "4",
 },
 {
     'name': 'Ротвейлер',
@@ -96,6 +109,7 @@ sl = [{
     "ves" : "38-53",
     "naznachenie" : "Служ",
     "Sherst" : "Глад",
+    "Agrassive" : "5",
 },
 {
     'name': 'Cиба-ину',
@@ -103,6 +117,7 @@ sl = [{
     "ves" : "7-13",
     "naznachenie" : "Охот",
     "Sherst" : "Плот",
+    "Agrassive" : "6",
 },
 {
     'name': 'Ньюфаундленд',
@@ -110,6 +125,7 @@ sl = [{
     "ves" : "49-53",
     "naznachenie" : "Служ",
     "Sherst" : "Плот вод",
+    "Agrassive" : "2",
 }
 ]
 shake_y = 5
